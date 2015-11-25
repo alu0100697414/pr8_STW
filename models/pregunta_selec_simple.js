@@ -15,7 +15,7 @@ PreguntaSelecSimple.prototype.vista = function(){
   var vista = [];
 
   for(var i=0; i<this.array_.length; i++){
-    vista[i] = "<input type='radio' name='transporte' value=" + (i+1) + ">" + this.array_[i];
+    vista[i] = "<option>" + this.array_[i] + "</option>";
   }
 
   return vista;

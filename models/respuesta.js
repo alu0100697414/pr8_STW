@@ -6,8 +6,13 @@ function Respuesta(x){
   }
 
   // Si es una expresión regular
-  else if(x instanceof RegExp === true){
+  else if(x instanceof RegExp){
     return function(res){return res.match(x);};
+  }
+
+  // Si es una expresión regular
+  else if(x instanceof Array){
+    return function(res){return res === x;};
   }
 
   // Si es una funcion

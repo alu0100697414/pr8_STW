@@ -2,7 +2,15 @@
 
   Pregunta: <%- pregunta %><p>
 
-  <%- area %>
+  <% if(area instanceof Array){ %>
+    <select name="respuesta">
+    <% for(var i=0; i<area.length; i++){ %>
+      <%- area[i]  %>
+    <% } %>
+    </select>
+  <% } else { %>
+    <%- area %>
+  <% } %>
 
   <br><br>
 

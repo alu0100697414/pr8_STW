@@ -92,9 +92,9 @@ Quiz.prototype.getQuestion = function(x){
 
 Quiz.prototype.getArea = function(x){
   // Para quitar las comas del Array
-  if(x['pregunta'].vista() instanceof Array){
-    return x['pregunta'].vista().join("");
-  }
+  // if(x['pregunta'].vista() instanceof Array){
+  //   return x['pregunta'].vista().join("");
+  // }
 
   return x['pregunta'].vista();
 }
