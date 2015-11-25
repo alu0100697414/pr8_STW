@@ -15,8 +15,11 @@ PreguntaSelecMultiple.prototype.vista = function(){
   var vista = [];
 
   for(var i=0; i<this.array_.length; i++){
-    vista[i] = "<input type='checkbox' name='transporte' value=" + (i+1) + ">" + this.array_[i];
+    vista[i] = "<option>" + this.array_[i] + "</option>";
   }
+
+  vista.unshift("<select name='respuesta[]' size=" + this.array_.length + " multiple>");
+  vista.push("</select>");
 
   return vista;
 }

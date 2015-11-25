@@ -18,6 +18,9 @@ PreguntaSelecSimple.prototype.vista = function(){
     vista[i] = "<option>" + this.array_[i] + "</option>";
   }
 
+  vista.unshift("<select name='respuesta'>");
+  vista.push("</select>");
+
   return vista;
 }
 
