@@ -2,7 +2,8 @@ var AbstractQuiz = require('../models/abstract_quiz_model.js');
 var PreguntaCorta = require('../models/pregunta_corta.js');
 var PreguntaLarga = require('../models/pregunta_larga.js');
 var Respuesta = require('../models/respuesta.js');
-//var PreguntaSelecSimple = require('../models/pregunta_selec_simple.js');
+var PreguntaSelecSimple = require('../models/pregunta_selec_simple.js');
+var PreguntaSelecMultiple = require('../models/pregunta_selec_multiple.js');
 
 function Quiz() {
 
@@ -10,9 +11,13 @@ function Quiz() {
 
   this.q.push(
 
-    // { pregunta: new PreguntaSelecSimple('¿Capital de Grecia?', ['Madrid', 'Roma', 'Atenas']),
-    //   respuesta: new Respuesta('Atenas')
-    // },
+    { pregunta: new PreguntaSelecSimple('¿Capital de Grecia?', ['Madrid', 'Roma', 'Atenas']),
+      respuesta: new Respuesta('Atenas')
+    },
+
+    { pregunta: new PreguntaSelecMultiple('¿Qué animales son mamíferos?', ['Ornitorrinco', 'Canguro', 'Ballena', 'Gato']),
+      respuesta: new Respuesta(['Ballena', 'Gato'])
+    },
 
     { pregunta: new PreguntaCorta('¿Capital de Italia?'),
       respuesta: new Respuesta(/^\s*roma\s*$/i)
@@ -86,6 +91,11 @@ Quiz.prototype.getQuestion = function(x){
 }
 
 Quiz.prototype.getArea = function(x){
+  // Para quitar las comas del Array
+  if(x['pregunta'].vista() instanceof Array){
+    return x['pregunta'].vista().join("");
+  }
+
   return x['pregunta'].vista();
 }
 
