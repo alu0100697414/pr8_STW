@@ -86,12 +86,4 @@ Quiz.prototype.getQ = function(x){
   return this.q[x]['pregunta'].get_pregunta();
 }
 
-Quiz.prototype.getQuestion = function(x){
-  return x['pregunta'].get_pregunta();
-}
-
-Quiz.prototype.getArea = function(x){
-  return x['pregunta'].vista();
-}
-
 module.exports = Quiz;

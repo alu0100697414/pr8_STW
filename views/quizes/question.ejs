@@ -1,14 +1,8 @@
 <form method="get" action="/quizes/answer">
 
-  Pregunta: <%- pregunta %><p>
+  Pregunta: <%- pregunta.get_pregunta() %><p>
 
-  <% if(area instanceof Array){ %>
-    <% for(var i=0; i<area.length; i++){ %>
-      <%- area[i] %>
-    <% } %>
-  <% } else { %>
-    <%- area %>
-  <% } %>
+  <%- pregunta.get_area() %>
 
   <br><br>
 
